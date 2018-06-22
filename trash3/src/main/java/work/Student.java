@@ -1,6 +1,6 @@
 package work;
 
-public class Student extends Human
+public class Student extends Human implements Executable
 {
     public String uni;
 
@@ -8,5 +8,10 @@ public class Student extends Human
     {
         super(_name, _age);
         uni = _uni;
+    }
+
+    public void execute()
+    {
+        System.out.println("STUDENT EXECUTED x_x");
     }
 }

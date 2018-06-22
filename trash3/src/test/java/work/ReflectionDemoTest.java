@@ -2,8 +2,10 @@ package work;
 
 import org.junit.Test;
 
+import java.sql.Ref;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -21,14 +23,13 @@ public class ReflectionDemoTest {
     }
 
     @Test
-    public void is_human() {
-    }
-
-    @Test
-    public void get_public_methods() {
-    }
-
-    @Test
-    public void getSuperclass_list() {
+    public void testGnS()
+    {
+        List<String> list1 = new ArrayList<>();
+        Collections.addAll(list1, "setName", "getName", "getAge", "setAge");
+        List<String> list2 = ReflectionDemo.pullGnS(new Human("", 0));
+        list1.sort(Comparator.naturalOrder());
+        list2.sort(Comparator.naturalOrder());
+        assertEquals(list1, list2);
     }
 }
